@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: securityDemo
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1234
+    data-source-properties:
+      show-sql: true
+netty:
+  default:
+    allocator:
+      max-order: 3
